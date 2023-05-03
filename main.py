@@ -23,32 +23,32 @@ async def response_message(message: types.Message):
 
         # Execute queries
         # GET users info
-        count_users = queries.get_new_user_count(date)
-        all_users = queries.get_all_user_count()
+        count_users = queries.get_count('users', date)
+        all_users = queries.get_count('users')
 
         # GET clubs info
-        count_clubs = queries.get_new_clubs_count()
-        all_clubs = queries.get_all_clubs_count()
+        count_clubs = queries.get_count('clubs', date)
+        all_clubs = queries.get_count('clubs')
 
         # GET club subscribers info
-        count_sub = queries.get_new_subscribers_count()
-        all_sub = queries.get_all_subscribers_count()
+        count_sub = queries.get_count('user_clubs', date)
+        all_sub = queries.get_count('user_clubs')
 
         # GET posts info
-        count_posts = queries.get_new_posts_count()
-        all_posts = queries.get_all_posts_count()
+        count_posts = queries.get_count('posts', date)
+        all_posts = queries.get_count('posts')
 
         # GET photos info
-        count_photos = queries.get_new_photos_count()
-        all_photos = queries.get_all_photos_count()
+        count_photos = queries.get_count('uploads', date)
+        all_photos = queries.get_count('uploads')
 
         # GET likes info
-        count_likes = queries.get_new_likes_count()
-        all_likes = queries.get_all_likes_count()
+        count_likes = queries.get_count('likes', date)
+        all_likes = queries.get_count('likes')
 
         # GET comments info
-        count_comments = queries.get_new_comments_count()
-        all_comments = queries.get_all_comments_count()
+        count_comments = queries.get_count('comments', date)
+        all_comments = queries.get_count('comments')
 
         # Send stats
         await message.reply(f"\n"
