@@ -1,10 +1,10 @@
 from aiogram import Bot, Dispatcher, executor, types
-import config
+from config_reader import config
 import datetime
 import queries
 
 # Get TOKEN
-bot = Bot(token=config.TELEGRAM_TOKEN)
+bot = Bot(token=config.bot_token.get_secret_value())
 dispatcher = Dispatcher(bot)
 
 
@@ -53,26 +53,26 @@ async def response_message(message: types.Message):
         # Send stats
         await message.reply(f"\n"
                             f"        Статстика за {date}:\n"
-                            f"        - новых пользователей {count_users}\n"
-                            f"        - всего пользователей {all_users}\n"
+                            f"        - новых пользователей: {count_users}\n"
+                            f"        - всего пользователей: {all_users}\n"
                             f"\n"
-                            f"        - новых клубов {count_clubs}\n"
-                            f"        - всего клубов {all_clubs}\n"
+                            f"        - новых клубов: {count_clubs}\n"
+                            f"        - всего клубов: {all_clubs}\n"
                             f"\n"
                             f"        - новых подписчиков {count_sub}\n"
                             f"        - всего подписчиков {all_sub}\n"
                             f"\n"
-                            f"        - новых постов {count_posts}\n"
-                            f"        - всего постов {all_posts}\n"
+                            f"        - новых постов: {count_posts}\n"
+                            f"        - всего постов: {all_posts}\n"
                             f"\n"
-                            f"        - новых фотографий загружено пользователями {count_photos}\n"
-                            f"        - всего фотографий загружено пользователями {all_photos}\n"
+                            f"        - новых фотографий загружено пользователями: {count_photos}\n"
+                            f"        - всего фотографий загружено пользователями: {all_photos}\n"
                             f"\n"
-                            f"        - новых лайков {count_likes}\n"
-                            f"        - всего лайков {all_likes}\n"
-                            f"\n"
-                            f"        - новых комментариев {count_comments}\n"
-                            f"        - всего комментариев {all_comments}\n"
+                            # # f"        - новых лайков: {count_likes}\n"
+                            # # f"        - всего лайков: {all_likes}\n"
+                            # f"\n"
+                            # # f"        - новых комментариев: {count_comments}\n"
+                            # # f"        - всего комментариев: {all_comments}\n"
                             f"\n")
     except ValueError:
         # if user request text not valid
