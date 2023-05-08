@@ -35,20 +35,20 @@ async def response_message(message: types.Message):
         all_sub = queries.get_count('user_clubs')
 
         # GET posts info
-        count_posts = queries.get_count('posts', date)
-        all_posts = queries.get_count('posts')
+        # count_posts = queries.get_count('posts', date)
+        # all_posts = queries.get_count('posts')
 
         # GET photos info
         count_photos = queries.get_count('uploads', date)
         all_photos = queries.get_count('uploads')
 
         # GET likes info
-        count_likes = queries.get_count('likes', date)
-        all_likes = queries.get_count('likes')
+        # count_likes = queries.get_count('likes', date)
+        # all_likes = queries.get_count('likes')
 
         # GET comments info
-        count_comments = queries.get_count('comments', date)
-        all_comments = queries.get_count('comments')
+        # count_comments = queries.get_count('comments', date)
+        # all_comments = queries.get_count('comments')
 
         # Send stats
         await message.reply(f"\n"
@@ -62,8 +62,8 @@ async def response_message(message: types.Message):
                             f"        - новых подписчиков {count_sub}\n"
                             f"        - всего подписчиков {all_sub}\n"
                             f"\n"
-                            f"        - новых постов: {count_posts}\n"
-                            f"        - всего постов: {all_posts}\n"
+                            # f"        - новых постов: {count_posts}\n"
+                            # f"        - всего постов: {all_posts}\n"
                             f"\n"
                             f"        - новых фотографий загружено пользователями: {count_photos}\n"
                             f"        - всего фотографий загружено пользователями: {all_photos}\n"
